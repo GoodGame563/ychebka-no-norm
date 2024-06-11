@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ychebka_no_norm.Models;
 
 namespace ychebka
 {
@@ -20,9 +22,25 @@ namespace ychebka
     /// </summary>
     public partial class PageRieltor : Page
     {
+        RealtorsStoreContext db;
         public PageRieltor()
         {
             InitializeComponent();
+
+            db = new RealtorsStoreContext();
+            db.Realtors.Load();
+            RieltorGrid.ItemsSource = db.Realtors.Local.ToBindingList();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            db.SaveChanges();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Realtor realtor = new() {LastName = patronymic.Text, FirstName = name.Text, MiddleName = surname.Text, Comission = int.Parse(phone.Text)};
+            db.Realtors.Add(realtor);
         }
     }
 }

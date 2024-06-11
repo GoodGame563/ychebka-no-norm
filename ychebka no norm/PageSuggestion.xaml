@@ -27,11 +27,10 @@
                 </Grid.RowDefinitions>
                 <ComboBox x:Name="clientComboBox" Tag="Клиент" Grid.Row="1"/>
                 <ComboBox x:Name="rieltorComboBox" Tag="Риэлтор" Grid.Row="2"/>
-                <ComboBox x:Name="estateComboBox" Tag="Недвижемость" Grid.Row="3"/>
+                <ComboBox x:Name="estateComboBox" Tag="Недвижимость" Grid.Row="3"/>
                 <TextBox x:Name="price" Tag="Цена" Grid.Row="4"/>
-                <Button Content="Создать" Grid.Row="6"/>
-                <Button Content="Изменить" Grid.Row="7"/>
-                <Button Content="Удалить" Grid.Row="8"/>
+                <Button Content="Создать" Grid.Row="6" Click="Button_Click_1"/>
+                <Button Content="Сохранить" Grid.Row="7" Click="Button_Click"/>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -39,10 +38,16 @@
                     <RowDefinition/>
                     <RowDefinition Height="0.2*"/>
                 </Grid.RowDefinitions>
-                <ListView x:Name="listBox" DockPanel.Dock="Top" Grid.Row="1">
-           
-                </ListView>
-                <Button Content="Обновить" Margin="10" Width="120" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="2"/>
+                <DataGrid x:Name="SuggestionGrid" DockPanel.Dock="Top" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
+                        <DataGridTextColumn Header="Реэлтор" Binding="{Binding Realtor}"/>
+                        <DataGridTextColumn Header="Клиент" Binding="{Binding Client}"/>
+                        <DataGridTextColumn Header="Недвижимость" Binding="{Binding Estate}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
             </Grid>
         </Grid>
     </ScrollViewer>

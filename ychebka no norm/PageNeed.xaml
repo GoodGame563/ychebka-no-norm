@@ -37,7 +37,7 @@
 
                 <ComboBox x:Name="clientComboBox" Tag="Клиент" Grid.Row="1"/>
                 <ComboBox x:Name="rieltorComboBox" Tag="Риэлтор" Grid.Row="2"/>
-                <ComboBox x:Name="adressComboBox" Tag="Адресс" Grid.Row="4"/>
+                <ComboBox x:Name="adressComboBox" Tag="Адрес" Grid.Row="4"/>
                 <StackPanel Grid.Row="3" Margin="10">
                     <RadioButton x:Name="apatmentCheck" IsChecked="True" >
                         <TextBlock Text="Квартира"/>
@@ -71,7 +71,7 @@
                         <DataGridTextColumn Header="id" Binding="{Binding Id}"/>
                         <DataGridTextColumn Header="Клиент" Binding="{Binding Client}"/>
                         <DataGridTextColumn Header="Риэлтор" Binding="{Binding Realtor}"/>
-                        <DataGridTextColumn Header="Адресс" Binding="{Binding Address}"/>
+                        <DataGridTextColumn Header="Адрес" Binding="{Binding Address}"/>
                         <DataGridTextColumn Header="Тип жилища" Binding="{Binding EstateType}"/>
                         <DataGridTextColumn Header="Минимальная цена" Binding="{Binding MinPrice}"/>
                         <DataGridTextColumn Header="Максимальная цена" Binding="{Binding MaxPrice}"/>
@@ -81,7 +81,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Фио клиента" Binding="{Binding FioClient}"/>
                         <DataGridTextColumn Header="Фио реалтора" Binding="{Binding FioRialtor}"/>
-                        <DataGridTextColumn Header="Адресс" Binding="{Binding Addres}"/>
+                        <DataGridTextColumn Header="Адрес" Binding="{Binding Addres}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

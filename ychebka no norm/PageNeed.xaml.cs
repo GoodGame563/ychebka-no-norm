@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,7 +93,25 @@ namespace ychebka
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            if(adressComboBox.SelectedIndex == -1 || rieltorComboBox.SelectedIndex == -1 || clientComboBox.SelectedIndex == -1)
+            {
+                return;
+            }
+            string type = "";
+            if (apatmentCheck.IsChecked == true)
+            {
+                type = "квартира";
+            }
+            if (houseCheck.IsChecked == true)
+            {
+                type = "дом";
+            }
+            if (estateCheck.IsChecked == true)
+            {
+                type = "земля";
+            }
+            Need need = new() {Client = int.Parse(clientComboBox.SelectedItem.ToString().Split(" ")[0]), Realtor = int.Parse(rieltorComboBox.SelectedItem.ToString().Split(" ")[0]), Address = int.Parse(adressComboBox.SelectedItem.ToString().Split(" ")[0]), MaxPrice = decimal.Parse( priceMax.Text == "" ? "0": priceMax.Text), MinPrice = decimal.Parse(priceMin.Text == "" ? "0" : priceMin.Text), EstateType = type};
+            db.Needs.Add(need);
         }
     }
 }

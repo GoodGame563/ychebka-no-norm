@@ -21,8 +21,8 @@
                 <TextBox x:Name="house" Tag="Дом" />
                 <TextBox x:Name="number" Tag="Номер\Квартира" />
 
-                <Button Content="Создать" />
-                <Button Content="Сохранить"/>
+                <Button Content="Создать" Click="Button_Click_1"/>
+                <Button Content="Сохранить" Click="Button_Click"/>
             </UniformGrid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -30,26 +30,16 @@
                     <RowDefinition/>
                     <RowDefinition Height="0.2*"/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <DataGrid x:Name="NeedGrid" DockPanel.Dock="Top" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" MouseUp="NeedGrid_MouseLeftButtonDown">
+                <DataGrid x:Name="AdressGrid" DockPanel.Dock="Top" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="id" Binding="{Binding Id}"/>
-                        <DataGridTextColumn Header="Клиент" Binding="{Binding City}"/>
-                        <DataGridTextColumn Header="Риэлтор" Binding="{Binding Street}"/>
-                        <DataGridTextColumn Header="Адресс" Binding="{Binding House}"/>
-                        <DataGridTextColumn Header="Тип жилища" Binding="{Binding Number}"/>
+                        <DataGridTextColumn Header="Город" Binding="{Binding City}"/>
+                        <DataGridTextColumn Header="Улица" Binding="{Binding Street}"/>
+                        <DataGridTextColumn Header="Дом" Binding="{Binding House}"/>
+                        <DataGridTextColumn Header="Номер\Квартира" Binding="{Binding Number}"/>
                     </DataGrid.Columns>
                 </DataGrid>
-                <DataGrid x:Name="AllGrid" DockPanel.Dock="Top" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="True" IsReadOnly="True" CanUserAddRows="False" >
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Фио клиента" Binding="{Binding FioClient}"/>
-                        <DataGridTextColumn Header="Фио реалтора" Binding="{Binding FioRialtor}"/>
-                        <DataGridTextColumn Header="Адресс" Binding="{Binding Addres}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+          
             </Grid>
         </Grid>
     </ScrollViewer>

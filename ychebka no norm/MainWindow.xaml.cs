@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ychebka_no_norm;
 
 namespace ychebka
 {
@@ -59,6 +60,12 @@ namespace ychebka
         {
             Main.Content = new PageNeed();
             wind.Title = "Окно потребностей";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new PageAdress();
+            wind.Title = "Окно адресов";
         }
     }
 }
