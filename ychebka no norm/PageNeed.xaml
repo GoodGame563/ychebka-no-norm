@@ -36,7 +36,8 @@
                 </Grid.RowDefinitions>
 
                 <ComboBox x:Name="clientComboBox" Tag="Клиент" Grid.Row="1"/>
-                <ComboBox x:Name="rieltorComboBox" Tag="Риэлтор" Grid.Row="2"/>                
+                <ComboBox x:Name="rieltorComboBox" Tag="Риэлтор" Grid.Row="2"/>
+                <ComboBox x:Name="adressComboBox" Tag="Адресс" Grid.Row="4"/>
                 <StackPanel Grid.Row="3" Margin="10">
                     <RadioButton x:Name="apatmentCheck" IsChecked="True" >
                         <TextBlock Text="Квартира"/>
@@ -48,10 +49,7 @@
                         <TextBlock Text="Земля"/>
                     </RadioButton>
                 </StackPanel>
-                <TextBox x:Name="city" Tag="Город" Grid.Row="4" />
-                <TextBox x:Name="street" Tag="Улица" Grid.Row="5" />
-                <TextBox x:Name="house" Tag="Дом" Grid.Row="6" />
-                <TextBox x:Name="number" Tag="Номер\Квартира" Grid.Row="7" />
+             
                 <TextBox x:Name="priceMin" Tag="Минимальная цена" Grid.Row="8" />
                 <TextBox x:Name="priceMax" Tag="Максимальная цена" Grid.Row="9"/>
 

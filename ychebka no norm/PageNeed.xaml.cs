@@ -46,6 +46,14 @@ namespace ychebka
                 ids1.Add($"{b[i].Id} {(b[i].FirstName)} {b[i].MiddleName} {b[i].LastName}");
             }
             rieltorComboBox.ItemsSource = ids1;
+            db.Addresses.Load();
+            var c = db.Addresses.Local.ToBindingList();
+            List<String> ids2 = new();
+            for (int i = 0; i < c.Count; i++)
+            {
+                ids2.Add($"{c[i].Id} {(c[i].City)} {c[i].Street} {c[i].House} {c[i].Number}");
+            }
+            adressComboBox.ItemsSource = ids2;
         }
         public class AllInfo
         {
