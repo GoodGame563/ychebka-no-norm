@@ -27,14 +27,14 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="surname" Grid.Row="1" Tag="Фамилия" MaxLength="30"/>
+                <TextBox x:Name="surname" Grid.Row="1" Tag="Фамилия" MaxLength="30"  />
                 <TextBox x:Name="name" Grid.Row="2" Tag="Имя" MaxLength="15"/>
                 <TextBox x:Name="patronymic" Grid.Row="3" Tag="Отчество" MaxLength="30"/>
                 <TextBox x:Name="phone" Grid.Row="4" Tag="Номер телефона" MaxLength="12"/>
                 <TextBox x:Name="email" Grid.Row="5" Tag="Почта" MaxLength="40"/>
-                <Button Content="Создать" Grid.Row="7" />
-                <Button Content="Изменить" Grid.Row="8" />
-                <Button Content="Удалить" Grid.Row="9" />
+                <Button Content="Создать" Grid.Row="7" Click="Button_Click_1" />
+                <Button Content="Сохранить" Grid.Row="8" Click="Button_Click" />
+
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -42,9 +42,19 @@
                     <RowDefinition/>
                     <RowDefinition Height="0.2*"/>
                 </Grid.RowDefinitions>
-                <ListView x:Name="listBox" DockPanel.Dock="Top" Grid.Row="1">
-                </ListView>
-                <Button Content="Обновить"  Width="120" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="2"/>
+                <DataGrid x:Name="ClientGrid" DockPanel.Dock="Top" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding MiddleName}"/>
+                        <DataGridTextColumn Header="Отчество" Binding="{Binding LastName}"/>
+                        <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                    </DataGrid.Columns>
+                    
+                    
+                </DataGrid>
+
             </Grid>
         </Grid>
     </ScrollViewer>

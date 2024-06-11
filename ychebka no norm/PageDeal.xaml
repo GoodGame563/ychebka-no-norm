@@ -24,10 +24,10 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition Height="3*"></RowDefinition>
                     </Grid.RowDefinitions>
-                <ComboBox x:Name="needComboBox" Tag="Потребность" Margin="0 10" Grid.Row="1"/>
+                <ComboBox x:Name="needComboBox" Tag="Потребность" Margin="0 10" Grid.Row="1" />
                 <ComboBox x:Name="suggestionComboBox" Tag="Предложения" Margin="0 10" Grid.Row="2"/>
-                    <Button Content="Создать"  Margin="0 10" Grid.Row="4"/>
-                    <Button Content="Удалить"  Margin="0 10" Grid.Row="5"/>
+                    <Button Content="Создать"  Margin="0 10" Grid.Row="4" Click="Button_Click_1"/>
+                    <Button Content="Сохранить"  Margin="0 10" Grid.Row="5" Click="Button_Click"/>
                 </Grid>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
@@ -35,10 +35,14 @@
                         <RowDefinition/>
                         <RowDefinition Height="0.2*"/>
                     </Grid.RowDefinitions>
-                    <ListView x:Name="listBox" Grid.Row="1">
-                    </ListView>
-                    <Button Content="Обновить" Margin="10" Width="120" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="2"/>
-                </Grid>
+                <DataGrid x:Name="DealGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Потребность" Binding="{Binding Need}"/>
+                        <DataGridTextColumn Header="Предложение" Binding="{Binding Suggestion}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
             </Grid>
         </ScrollViewer>
     

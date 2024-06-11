@@ -32,6 +32,7 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <ComboBox x:Name="clientComboBox" Tag="Клиент" Grid.Row="1"/>
@@ -47,13 +48,15 @@
                         <TextBlock Text="Земля"/>
                     </RadioButton>
                 </StackPanel>
-                <TextBox x:Name="adress" Tag="Адресс" Grid.Row="4" />
-                <TextBox x:Name="priceMin" Tag="Минимальная цена" Grid.Row="5" />
-                <TextBox x:Name="priceMax" Tag="Максимальная цена" Grid.Row="6"/>
-                
-                <Button Content="Создать" Grid.Row="8"/>
-                <Button Content="Изменить" Grid.Row="9"/>
-                <Button Content="Удалить" Grid.Row="10"/>
+                <TextBox x:Name="city" Tag="Город" Grid.Row="4" />
+                <TextBox x:Name="street" Tag="Улица" Grid.Row="5" />
+                <TextBox x:Name="house" Tag="Дом" Grid.Row="6" />
+                <TextBox x:Name="number" Tag="Номер\Квартира" Grid.Row="7" />
+                <TextBox x:Name="priceMin" Tag="Минимальная цена" Grid.Row="8" />
+                <TextBox x:Name="priceMax" Tag="Максимальная цена" Grid.Row="9"/>
+
+                <Button Content="Создать" Grid.Row="10" Click="Button_Click_1"/>
+                <Button Content="Сохранить" Grid.Row="11" Click="Button_Click"/>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -61,10 +64,28 @@
                     <RowDefinition/>
                     <RowDefinition Height="0.2*"/>
                 </Grid.RowDefinitions>
-                <ListView x:Name="listBox" DockPanel.Dock="Top" Grid.Row="1">
-        
-                </ListView>
-                <Button Content="Обновить" Margin="10" Width="120" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="2"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <DataGrid x:Name="NeedGrid" DockPanel.Dock="Top" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" MouseUp="NeedGrid_MouseLeftButtonDown">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Клиент" Binding="{Binding Client}"/>
+                        <DataGridTextColumn Header="Риэлтор" Binding="{Binding Realtor}"/>
+                        <DataGridTextColumn Header="Адресс" Binding="{Binding Address}"/>
+                        <DataGridTextColumn Header="Тип жилища" Binding="{Binding EstateType}"/>
+                        <DataGridTextColumn Header="Минимальная цена" Binding="{Binding MinPrice}"/>
+                        <DataGridTextColumn Header="Максимальная цена" Binding="{Binding MaxPrice}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid x:Name="AllGrid" DockPanel.Dock="Top" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="True" IsReadOnly="True" CanUserAddRows="False" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Фио клиента" Binding="{Binding FioClient}"/>
+                        <DataGridTextColumn Header="Фио реалтора" Binding="{Binding FioRialtor}"/>
+                        <DataGridTextColumn Header="Адресс" Binding="{Binding Addres}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </Grid>
     </ScrollViewer>
