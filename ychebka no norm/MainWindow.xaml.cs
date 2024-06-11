@@ -21,9 +21,15 @@ namespace ychebka
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }catch {
+                MessageBox.Show("ЧТо ты наделал");
+            }
         }
 
         private void OpenClient(object sender, RoutedEventArgs e)
@@ -67,5 +73,6 @@ namespace ychebka
             Main.Content = new PageAdress();
             wind.Title = "Окно адресов";
         }
+    
     }
 }
